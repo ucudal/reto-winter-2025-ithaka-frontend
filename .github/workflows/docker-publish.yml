@@ -3,7 +3,7 @@ name: Build and Push Frontend to ACR
 on:
   push:
     branches:
-      - mi-rama-joaco  # Solo se activa cuando hacés push a tu rama
+      - mi-rama-joaco  # Cambia esto a "main" si querés que se ejecute en la rama principal
 
 jobs:
   build-and-push:
@@ -21,3 +21,4 @@ jobs:
 
       - name: Push de imagen a ACR
         run: docker push crretoxmas2024.azurecr.io/reto-frontend:latest
+
