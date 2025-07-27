@@ -1,9 +1,10 @@
-name: Build and Push Frontend to ACR
+name: build-and-push
 
 on:
   push:
     branches:
-      - mi-rama-joaco  # Cambia esto a "main" si querés que se ejecute en la rama principal
+      - main
+      - mi-rama-joaco  # tu rama actual de pruebas
 
 jobs:
   build-and-push:
@@ -14,11 +15,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login en Azure Container Registry
-        run: echo "${{ secrets.AZURE_ACR_PASSWORD }}" | docker login crretoxmas2024.azurecr.io -u github-token --password-stdin
+        uses: azure/docker-login@v1
+        with:
+          login-server: crretoxmas2024.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Build de imagen Docker
+      - name: Build imagen Docker
         run: docker build -t crretoxmas2024.azurecr.io/reto-frontend:latest .
 
-      - name: Push de imagen a ACR
+      - name: Push imagen a ACR
         run: docker push crretoxmas2024.azurecr.io/reto-frontend:latest
-
