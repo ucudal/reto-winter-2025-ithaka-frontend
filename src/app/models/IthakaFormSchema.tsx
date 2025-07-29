@@ -73,7 +73,7 @@ export const ithakaFormSchema: IthakaFormFieldMetadata[] = [
     label: "Cómo se enteró de Ithaka",
     description: "Indicar cómo conoció el emprendedor a Ithaka.",
     section: "Relación con la UCU",
-    type: "string",
+    type: "multiselect",
     importance: "optional",
     aiExtractionHints: ["me enteré por", "vi en", "me recomendaron"],
   },
@@ -116,8 +116,7 @@ export const ithakaFormSchema: IthakaFormFieldMetadata[] = [
     aiEnrichmentHints: [
       "El problema es especifico",
       "El problema afecta una masa considerable de personas",
-      "El problema es suficiente como para que la gente quiera pagar por resolverlo",
-      "El problema se resuelve de alguna forma actualmente"
+      "El problema es suficiente como para que la gente quiera pagar por resolverlo"
     ]
   },
   {
@@ -135,7 +134,7 @@ export const ithakaFormSchema: IthakaFormFieldMetadata[] = [
     ]
   },
   {
-    field: "diferentialFromCompetitors",
+    field: "differentialFromCompetitors",
     label: "Diferencial frente a competidores",
     description: "Valor diferencial o ventaja competitiva frente a otros en el mercado.",
     section: "Detalles del Proyecto",
@@ -143,6 +142,7 @@ export const ithakaFormSchema: IthakaFormFieldMetadata[] = [
     importance: "critical",
     aiExtractionHints: ["a diferencia de", "nuestro diferencial es", "nos destacamos por"],
     aiEnrichmentHints: [
+      "Como resuelven hoy las personas este problema",
       "El diferencial es suficiente para diferenciarse de competidores",
       "El diferencial es relevante para quienes sufren este problema",
     ]
@@ -170,7 +170,7 @@ export const ithakaFormSchema: IthakaFormFieldMetadata[] = [
     label: "Necesidades desde Ithaka",
     description: "Qué tipo de apoyo espera recibir de Ithaka.",
     section: "Apoyo de Ithaka",
-    type: "array",
+    type: "multiselect",
     importance: "critical",
     aiExtractionHints: ["necesito ayuda con", "me gustaría recibir", "busco apoyo en"],
   },

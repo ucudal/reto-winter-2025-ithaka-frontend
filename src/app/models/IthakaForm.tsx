@@ -6,7 +6,7 @@ export const initialFormularioState: IthakaForm = {
   email: "",
   cellphone: "",
   ci: "",
-  placeOfResidence: "Otro",
+  placeOfResidence: "Montevideo", // Most probable place
   placeOfContactIthaka: "Montevideo",
   relationToUCU: "",
   howFoundOut: "",
@@ -15,7 +15,7 @@ export const initialFormularioState: IthakaForm = {
   previousExperience: "",
   problemToSolve: "",
   proposedSolution: "",
-  diferentialFromCompetitors: "",
+  differentialFromCompetitors: "",
   businessModel: "",
   currentProjectPhase: "es solo una idea",
   wantsFromIthaka: {

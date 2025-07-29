@@ -17,7 +17,7 @@ export interface IthakaForm {
   previousExperience: string;
   problemToSolve: string;
   proposedSolution: string;
-  diferentialFromCompetitors: string;
+  differentialFromCompetitors: string;
   businessModel: string;
 
   currentProjectPhase: ProjectPhase;
@@ -55,14 +55,13 @@ export type ProjectPhase =
   | "Salto"
   | "Artigas"
   | "Rivera"
-  | "Cerro largo"
+  | "Cerro Largo"
   | "Rio Negro"
   | "Rocha"
   | "Maldonado"
   | "Tacuarembo"
   | "Treinta y Tres"
-  | "Lavalleja"
-  | "Otro";
+  | "Lavalleja";
 
 export type DepartmentsWithIthaka = 
   | "Montevideo"
