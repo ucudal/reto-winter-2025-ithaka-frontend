@@ -1,14 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => (
   <header className="navbar">
     <div className="navbar-container">
-      <h1 className="navbar-title">Pagina de prueba</h1>
+      <Link to="/" className="navbar-title">Fake Ithaka</Link>
       <nav className="navbar-nav">
-        <a href="#intro">Inicio</a>
-        <a href="#uso">Uso</a>
-        <a href="#props">Props</a>
-        <a href="#casos">Casos</a>
+        <Link to="/">Inicio</Link>
+        <Link to="/#uso">Uso</Link>
+        <Link to="/faq">Preguntas Frecuentes</Link>
       </nav>
     </div>
   </header>
