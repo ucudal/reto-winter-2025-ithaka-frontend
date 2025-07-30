@@ -3,7 +3,7 @@ name: Build and Push Docker Image to ACR
 on:
   push:
     branches:
-      - mi-rama-joaco  # o cambialo por la rama que estés usando
+      - main
 
 jobs:
   build-and-push:
