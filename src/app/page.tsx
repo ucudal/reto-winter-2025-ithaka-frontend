@@ -1,9 +1,11 @@
 "use client";
 
 import { useCoAgent, useCopilotAction } from "@copilotkit/react-core";
-import { CopilotKitCSSProperties, CopilotPopup   } from "@copilotkit/react-ui";
+import { CopilotKitCSSProperties} from "@copilotkit/react-ui";
 import { useState } from "react";
 import WeatherCard from "./components/WeatherCard";
+import ChatPopup from "./components/ChatPopup";
+
 
 
 
@@ -36,13 +38,8 @@ return (
     <div
       style={{ "--copilot-kit-primary-color": POPUP_THEME_COLOR } as CopilotKitCSSProperties}
     >
-      <CopilotPopup
-        labels={{
-          title: "ITHAKA Copilot",
-          initial: "Hola soy el asistente de ITHAKA, ¿en qué puedo ayudarte?",
-          placeholder: "Escribe tu mensaje aquí...",
-        }}
-      />
+      <ChatPopup />
+
     </div>
   </>
 );
