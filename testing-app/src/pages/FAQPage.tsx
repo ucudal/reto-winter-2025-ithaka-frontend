@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { AuthBar } from '../components/AuthBar';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
@@ -35,7 +34,6 @@ export const FAQPage = () => {
 
   return (
     <div className="app">
-      <AuthBar />
       <Navbar />
       <main>
         <section className="faq-page-section">
