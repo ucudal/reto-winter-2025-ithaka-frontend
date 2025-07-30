@@ -10,6 +10,7 @@ import WeatherCard from "./components/WeatherCard";
 
 export default function CopilotKitPage() {
   const [themeColor, setThemeColor] = useState("#6366f1");
+  const POPUP_THEME_COLOR = "deepskyblue"; 
 
   // 🪁 Frontend Actions: https://docs.copilotkit.ai/guides/frontend-actions
   useCopilotAction({
@@ -33,7 +34,7 @@ return (
     </main>
 
     <div
-      style={{ "--copilot-kit-primary-color": "deepskyblue" } as CopilotKitCSSProperties}
+      style={{ "--copilot-kit-primary-color": POPUP_THEME_COLOR } as CopilotKitCSSProperties}
     >
       <CopilotPopup
         labels={{

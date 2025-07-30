@@ -8,9 +8,8 @@ import React, {
   Dispatch,
 } from 'react';
 
-// Tipos
 export type Message = {
-  id?: string;
+  id: string;
   role: 'user' | 'assistant';
   content: string;
 };
@@ -20,6 +19,7 @@ type State = {
   input: string;
 };
 
+// Action types
 type Action =
   | { type: 'ADD_MESSAGE'; payload: Message }
   | { type: 'SET_INPUT'; payload: string }
@@ -31,7 +31,11 @@ const chatReducer = (state: State, action: Action): State => {
     case 'ADD_MESSAGE':
       return {
         ...state,
-        messages: [...state.messages, action.payload],
+        messages: [...state.messages, { 
+          ...action.payload, 
+          id: action.payload.id || crypto.randomUUID() 
+        }], 
+        
       };
     case 'SET_INPUT':
       return {
@@ -48,7 +52,7 @@ const chatReducer = (state: State, action: Action): State => {
   }
 };
 
-// Contextos
+// Context
 const ChatStateContext = createContext<State | undefined>(undefined);
 const ChatDispatchContext = createContext<Dispatch<Action> | undefined>(undefined);
 

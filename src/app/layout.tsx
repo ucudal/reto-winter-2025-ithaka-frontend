@@ -21,9 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <CopilotKit
-          publicApiKey={process.env.NEXT_PUBLIC_OPENAI_API_KEY}
-          // runtimeUrl="/api/copilotkit"
-          // agent="sample_agent"
+          publicApiKey={process.env.COPILOT_API_KEY || ""}
           >
           <ChatProvider>
             {children}
