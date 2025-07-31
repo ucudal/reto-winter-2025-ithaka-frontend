@@ -23,7 +23,7 @@ cd testing-app
 ```  
 and then: 
 ```
-npm install next
+npm install 
 ```
 ```
 npm run dev
