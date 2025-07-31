@@ -24,7 +24,7 @@ export const ExampleComponent: React.FC<ExampleComponentProps> = ({
         </div>
       )}
       <p className="text-xs text-white/60 mt-2">
-        Este es un componente de ejemplo. Reemplázalo con tus propios componentes.
+        This is an example component. Replace it with your own components.
       </p>
     </div>
   );
