@@ -64,3 +64,5 @@ export const FAQPage = () => {
     </div>
   );
 };
+
+export default FAQPage;

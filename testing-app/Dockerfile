@@ -1,46 +1,23 @@
-# Etapa de construcción
-FROM node:18-alpine AS builder
+# 1. Imagen base con Node
+FROM node:18
 
-# Establecer directorio de trabajo
+# 2. Establecer directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar archivos de dependencias
+# 3. Copiar archivos de dependencias
 COPY package*.json ./
 
-# Instalar dependencias
-RUN npm ci --only=production
+# 4. Instalar dependencias
+RUN npm install
 
-# Copiar código fuente
+# 5. Copiar el resto del código
 COPY . .
 
-# Construir la aplicación
+# 6. Construir la aplicación (para React / Next.js)
 RUN npm run build
 
-# Etapa de producción
-FROM node:18-alpine AS runner
-
-WORKDIR /app
-
-# Crear usuario no-root
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-# Copiar archivos necesarios desde la etapa de construcción
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-
-# Cambiar propietario de los archivos
-RUN chown -R nextjs:nodejs /app
-
-USER nextjs
-
-# Exponer puerto
+# 7. Exponer el puerto (React usa 3000, tu Flask usaba 5002)
 EXPOSE 3000
 
-# Variable de entorno para el puerto
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
-
-# Comando para ejecutar la aplicación
-CMD ["node", "server.js"]
+# 8. Comando de inicio
+CMD ["npm", "run", "dev"]

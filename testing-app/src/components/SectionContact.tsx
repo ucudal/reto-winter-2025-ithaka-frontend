@@ -8,7 +8,7 @@ export const SectionContact = () => (
         <div className="contact-list">
           <div className="contact-item">
             <strong className="contact-label">Dirección:</strong>
-            <span className="contact-value">Calle de los Desarrolladores Perdidos 1234, Edificio "El Bug Gigante"</span>
+            <span className="contact-value">Calle de los Desarrolladores Perdidos 1234, Edificio &quot;El Bug Gigante&quot;</span>
           </div>
           <div className="contact-item">
             <strong className="contact-label">Localidad:</strong>
