@@ -19,6 +19,7 @@ If you see that your change aren´t appearing in the website try running the dev
 ```
 npm install next
 ```
+
 npm run dev
 ```
 Then open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
