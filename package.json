@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Reusable UI components library for Ithaka projects",
   "main": "dist/index.js",
-  "module": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
