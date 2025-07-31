@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SectionUso = () => (
+export const SectionUse = () => (
   <section id="uso" className="section section-gray">
     <div className="section-container">
       <div className="ithaka-header">

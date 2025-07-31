@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from '../components/Navbar';
 import { SectionIntro } from '../components/SectionIntro';
-import { SectionUso } from '../components/SectionUso';
+import { SectionUse } from '../components/SectionUse';
 import { SectionContact } from '../components/SectionContact';
 import { Footer } from '../components/Footer';
 
@@ -13,7 +13,7 @@ export const HomePage = () => {
       <Navbar />
       <main>
         <SectionIntro />
-        <SectionUso />
+        <SectionUse />
         <SectionContact />
       </main>
       <Footer />
