@@ -1,32 +1,62 @@
 {
-  "name": "reto-winter-2025-ithaka-frontend",
+  "name": "ithaka-ui-components",
   "version": "0.1.0",
-  "private": true,
+  "description": "Reusable UI components library for Ithaka projects",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:lib": "tsc -p tsconfig.lib.json",
+    "build:types": "tsc -p tsconfig.lib.json",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepublishOnly": "npm run build:lib && npm run build:types",
+    "pack": "npm run build:lib && npm pack"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./ui": {
+      "import": "./dist/ui/index.js",
+      "require": "./dist/ui/index.js",
+      "types": "./dist/ui/index.d.ts"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@ag-ui/langgraph": "0.0.7",
-    "@ai-sdk/openai": "^1.3.22",
-    "@copilotkit/react-core": "^1.9.3",
-    "@copilotkit/react-ui": "^1.9.3",
-    "@copilotkit/runtime": "1.9.3",
     "next": "15.4.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.2",
     "tailwindcss": "^4",
+    "@tailwindcss/postcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "typescript",
+    "nextjs"
+  ],
+  "author": "Ithaka Team",
+  "license": "MIT"
 }
