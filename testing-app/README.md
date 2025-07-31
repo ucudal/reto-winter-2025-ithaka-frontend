@@ -4,7 +4,10 @@
 
 
 To build and start the docker service run:  
-
+```bash
+docker build -t testing-app .      
+```  
+and then:  
 ```bash
 docker build -t testing-app .      
 ```  
@@ -15,7 +18,10 @@ docker run -p 3001:3000 testing-app
 Then open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
 
 If you see that your change aren´t appearing in the website try running the development server:
-
+```bash
+docker build -t testing-app .      
+```  
+and then: 
 ```
 npm install next
 ```
