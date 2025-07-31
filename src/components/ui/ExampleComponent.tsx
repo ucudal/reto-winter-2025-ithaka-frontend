@@ -12,7 +12,7 @@ interface ExampleComponentProps {
 }
 
 export const ExampleComponent: React.FC<ExampleComponentProps> = ({ 
-  title = "Ejemplo", 
+  title = "Example", 
   children 
 }) => {
   return (
