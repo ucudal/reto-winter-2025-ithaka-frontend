@@ -1,12 +1,17 @@
 "use client";
 
 import { useCoAgent, useCopilotAction } from "@copilotkit/react-core";
-import { CopilotKitCSSProperties, CopilotSidebar } from "@copilotkit/react-ui";
+import { CopilotKitCSSProperties} from "@copilotkit/react-ui";
 import { useState } from "react";
 import WeatherCard from "./components/WeatherCard";
+import ChatPopup from "./components/ChatPopup";
+
+
+
 
 export default function CopilotKitPage() {
   const [themeColor, setThemeColor] = useState("#6366f1");
+  const POPUP_THEME_COLOR = "deepskyblue"; 
 
   // 🪁 Frontend Actions: https://docs.copilotkit.ai/guides/frontend-actions
   useCopilotAction({
@@ -21,19 +26,26 @@ export default function CopilotKitPage() {
     },
   });
 
-  return (
-    <main style={{ "--copilot-kit-primary-color": themeColor } as CopilotKitCSSProperties}>
+return (
+  <>
+    <main
+      style={{ "--copilot-kit-primary-color": themeColor } as CopilotKitCSSProperties}
+    >
       <YourMainContent themeColor={themeColor} />
-      <CopilotSidebar
-        clickOutsideToClose={false}
-        defaultOpen={true}
-        labels={{
-          title: "Popup Assistant",
-          initial: "👋 Hi, there! You're chatting with an agent. This agent comes with a few tools to get you started.\n\nFor example you can try:\n- **Frontend Tools**: \"Set the theme to orange\"\n- **Shared State**: \"Write a proverb about AI\"\n- **Generative UI**: \"Get the weather in SF\"\n\nAs you interact with the agent, you'll see the UI update in real-time to reflect the agent's **state**, **tool calls**, and **progress**."
-        }}
-      />
+    
+    
     </main>
-  );
+
+    <div
+      style={{ "--copilot-kit-primary-color": POPUP_THEME_COLOR } as CopilotKitCSSProperties}
+    >
+       <ChatPopup />
+      
+    </div>
+    
+    
+  </>
+);
 }
 
 // State of the agent, make sure this aligns with your agent's state.
@@ -67,6 +79,8 @@ function YourMainContent({ themeColor }: { themeColor: string }) {
       });
     },
   });
+
+
 
   //🪁 Generative UI: https://docs.copilotkit.ai/coagents/generative-ui
   useCopilotAction({
@@ -116,4 +130,6 @@ function YourMainContent({ themeColor }: { themeColor: string }) {
       </div>
     </div>
   );
+
+  
 }
