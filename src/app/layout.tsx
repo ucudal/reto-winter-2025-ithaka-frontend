@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-
 import { CopilotKit } from "@copilotkit/react-core";
 import "./globals.css";
 import "@copilotkit/react-ui/styles.css";
 
-import { ChatProvider } from "@/context/ChatContext";
 
 
 export const metadata: Metadata = {
@@ -23,9 +21,8 @@ export default function RootLayout({
         <CopilotKit
           publicApiKey={process.env.COPILOT_API_KEY || ""}
           >
-          <ChatProvider>
             {children}
-          </ChatProvider>
+          
         </CopilotKit>
       </body>
     </html>

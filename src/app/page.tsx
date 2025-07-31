@@ -9,7 +9,6 @@ import ChatPopup from "./components/ChatPopup";
 
 
 
-
 export default function CopilotKitPage() {
   const [themeColor, setThemeColor] = useState("#6366f1");
   const POPUP_THEME_COLOR = "deepskyblue"; 
@@ -33,14 +32,18 @@ return (
       style={{ "--copilot-kit-primary-color": themeColor } as CopilotKitCSSProperties}
     >
       <YourMainContent themeColor={themeColor} />
+    
+    
     </main>
 
     <div
       style={{ "--copilot-kit-primary-color": POPUP_THEME_COLOR } as CopilotKitCSSProperties}
     >
-      <ChatPopup />
-
+       <ChatPopup />
+      
     </div>
+    
+    
   </>
 );
 }
