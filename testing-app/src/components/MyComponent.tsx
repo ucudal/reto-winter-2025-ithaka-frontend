@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 interface MyComponentProps {
-   text: string;
- }
+  text: string;
+}
 
-export const MyComponent: React.FC<MyComponentProps> = ({ text }) => (
-  <div className="mi-componente">
-    <p className="mi-componente-text">{text}</p>
-  </div>
-); 
+const MyComponent: React.FC<MyComponentProps> = ({ text }) => {
+  return (
+    <div className="my-component">
+      <p className="my-component-text">{text}</p>
+    </div>
+  );
+};
+
+export default MyComponent; 

@@ -404,14 +404,14 @@ body {
 }
 
 /* Component styles */
-.mi-componente {
+.my-component {
   padding: 1rem;
   background-color: #EFF6FF;
   border: 1px solid #BFDBFE;
   border-radius: 0.5rem;
 }
 
-.mi-componente-text {
+.my-component-text {
   color: #1E40AF;
   font-weight: 500;
   line-height: 1.75;
