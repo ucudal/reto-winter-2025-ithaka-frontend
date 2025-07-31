@@ -27,4 +27,4 @@ jobs:
           tags: |
             crretoxmas2024.azurecr.io/ithaka-frontend:latest
           cache-from: type=registry,ref=crretoxmas2024.azurecr.io/ithaka-frontend:cache
-          cache-to:   type=registry,ref=crretoxmas2024.azurecr.io/ithaka-frontend:cache,mode=max
+          cache-to: type=registry,ref=crretoxmas2024.azurecr.io/ithaka-frontend:cache,mode=max
