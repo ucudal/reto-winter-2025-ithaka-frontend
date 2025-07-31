@@ -5,7 +5,7 @@
 
 To build and start the docker service run:  
 ```bash
-docker build -t testing-app .      
+cd testing-app       
 ```  
 and then:  
 ```bash
@@ -19,7 +19,7 @@ Then open [http://localhost:3001](http://localhost:3001) with your browser to se
 
 If you see that your change aren´t appearing in the website try running the development server:
 ```bash
-docker build -t testing-app .      
+cd testing-app    
 ```  
 and then: 
 ```
