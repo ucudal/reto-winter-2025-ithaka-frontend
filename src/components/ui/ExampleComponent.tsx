@@ -1,5 +1,11 @@
 import React from 'react';
 
+/**
+ * Props for the ExampleComponent.
+ * 
+ * @property {string} [title] - The title to display in the component. Defaults to "Ejemplo".
+ * @property {React.ReactNode} [children] - Optional child elements to render inside the component.
+ */
 interface ExampleComponentProps {
   title?: string;
   children?: React.ReactNode;
