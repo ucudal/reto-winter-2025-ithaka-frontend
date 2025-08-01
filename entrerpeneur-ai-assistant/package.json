@@ -1,7 +1,9 @@
 {
   "name": "entrepeneur-ai-assistant",
   "version": "0.1.0",
-  "main": "src/index.ts",
+  "main": "dist/index.ts",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
   "scripts": {
     "build:types": "tsc --project tsconfig.build.json",
     "build:js": "tsup",
@@ -12,31 +14,28 @@
   "license": "ISC",
   "description": "",
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./WeatherCard": {
-      "import": "./dist/WeatherCard.mjs",
-      "require": "./dist/WeatherCard.js",
-      "types": "./dist/WeatherCard.d.ts"
-    }
+  ".": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "./WeatherCard": {
+    "import": "./dist/WeatherCard.mjs",
+    "require": "./dist/WeatherCard.js",
+    "types": "./dist/WeatherCard.d.ts"
+  }
   },
   "files": [
     "dist"
   ],
   "peerDependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "typescript": "^5.8.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
     "tsup": "^8.5.0"
   }
 }
