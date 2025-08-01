@@ -1,11 +1,12 @@
-name: Build Docker Image
+name: Build Docker Image with Tag
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -17,12 +18,13 @@ jobs:
           username: ${{ secrets.AZURE_ACR_USERNAME }}
           password: ${{ secrets.AZURE_ACR_PASSWORD }}
 
+      - name: Extract short commit SHA
+        id: vars
+        run: echo "tag=$(date +%Y-%m-%d)-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: |
-            crretoxmas2024.azurecr.io/ithaka-frontend:latest
-          cache-from: type=registry,ref=crretoxmas2024.azurecr.io/ithaka-frontend:cache
-          cache-to:   type=registry,ref=crretoxmas2024.azurecr.io/ithaka-frontend:cache,mode=max
+          tags: crretoxmas2024.azurecr.io/ithaka-frontend:${{ steps.vars.outputs.tag }}
