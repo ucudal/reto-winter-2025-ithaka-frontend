@@ -22,4 +22,3 @@ docker run -p 3000:3000 reto-winter-2025-ithaka-front
 # Deploy automático con GitHub Actions
 
 
-trigger build
