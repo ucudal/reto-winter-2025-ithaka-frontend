@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ithaka-frontend-deployment
+  namespace: ithaka-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ithaka-frontend
+  template:
+    metadata:
+      labels:
+        app: ithaka-frontend
+    spec:
+      containers:
+        - name: ithaka-frontend
+          image: crretoxmas2024.azurecr.io/ithaka-frontend:latest
+          ports:
+            - containerPort: 3000
+      imagePullSecrets:
+        - name: acr-secret
