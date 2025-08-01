@@ -18,5 +18,10 @@ spec:
           image: crretoxmas2024.azurecr.io/ithaka-frontend:latest
           ports:
             - containerPort: 3000
-      imagePullSecrets:
-        - name: acr-secret
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
