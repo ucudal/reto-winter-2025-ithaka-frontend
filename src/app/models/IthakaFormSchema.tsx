@@ -189,6 +189,6 @@ export const ithakaFormSchema: IthakaFormFieldMetadata[] = [
     description: "Cualquier dato adicional o comentario que el emprendedor desee agregar.",
     section: "Comentarios",
     type: "string",
-    importance: "enrichable",
+    importance: "optional",
   },
 ];

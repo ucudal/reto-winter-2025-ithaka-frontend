@@ -1,6 +1,6 @@
-import { IthakaForm } from "./interfaces/IthakaForm";
+import { IthakaForm } from "./interfaces/IthakaFormInterface";
 
-export const initialFormularioState: IthakaForm = {
+export const initialFormState: IthakaForm = {
   name: "",
   lastname: "",
   email: "",
