@@ -1,4 +1,4 @@
-# entrerpeneur-ai-assistant
+# entrepreneur-ai-assistant
 
 Librería de componentes React con chatbot de asistencia para emprendedores.
 
@@ -88,13 +88,13 @@ npm link
 2. En la carpeta del proyecto donde se desea utilizar la librería:
 
 ```bash
-npm link entrerpeneur-ai-assistant
+npm link entrepreneur-ai-assistant
 ```
 
 3. Importar y usar en el código:
 
 ```tsx
-import { WeatherCard } from 'entrerpeneur-ai-assistant';
+import { WeatherCard } from 'entrepreneur-ai-assistant';
 ```
 
 4. Para mantener los cambios en tiempo real, ejecutar en la librería:
@@ -110,13 +110,13 @@ npm run build -- --watch
 2. En el proyecto donde se desea utilizar la librería, instalarla desde ruta local:
 
 ```bash
-npm install ../ruta/a/entrerpeneur-ai-assistant.tar
+npm install ../ruta/a/entrepreneur-ai-assistant.tar
 ```
 
 3. Importar y usar en el código como un paquete normal:
 
 ```tsx
-import { WeatherCard } from 'entrerpeneur-ai-assistant';
+import { WeatherCard } from 'entrepreneur-ai-assistant';
 ```
 
 
