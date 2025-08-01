@@ -10,7 +10,7 @@ spec:
         hosts:
           - ithaka-frontend.reto-ucu.net
         paths:
-          - /
+          - /*
       backends:
         - serviceName: ithaka-frontend-service
           servicePort: 80
