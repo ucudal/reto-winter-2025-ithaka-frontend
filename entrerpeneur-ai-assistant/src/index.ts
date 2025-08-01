@@ -1,0 +1,1 @@
+export { WeatherCardPOG as WeatherCard } from "./WeatherCard";

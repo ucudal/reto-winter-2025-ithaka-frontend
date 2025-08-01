@@ -1,0 +1,42 @@
+{
+  "name": "entrepeneur-ai-assistant",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build:types": "tsc --project tsconfig.build.json",
+    "build:js": "tsup",
+    "build": "npm run build:types && npm run build:js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./WeatherCard": {
+      "import": "./dist/WeatherCard.mjs",
+      "require": "./dist/WeatherCard.js",
+      "types": "./dist/WeatherCard.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0"
+  }
+}
