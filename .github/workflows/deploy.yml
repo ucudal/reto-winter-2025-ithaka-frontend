@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -17,7 +16,14 @@ jobs:
         run: echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_LOGIN_SERVER }} -u ${{ secrets.ACR_USERNAME }} --password-stdin
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest .
+        run: docker build -t ithaka-frontend:latest .
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ithaka-frontend:latest
+          format: table
+          exit-code: 0
 
       - name: Push Docker image
         run: docker push ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest
@@ -34,4 +40,3 @@ jobs:
           kubectl apply -f service.yaml
           kubectl apply -f apisixroute.yaml
           kubectl apply -f horizontal-pod-autoscaler.yaml
-          kubectl rollout restart deployment ithaka-frontend-deployment -n ithaka-frontend
