@@ -18,8 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <CopilotKit
+        <CopilotKit 
           publicApiKey={process.env.COPILOT_API_KEY || ""}
+          //runtimeUrl="/api/copilotkit"
           >
             {children}
           
