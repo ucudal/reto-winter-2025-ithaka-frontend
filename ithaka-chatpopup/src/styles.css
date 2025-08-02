@@ -1,0 +1,62 @@
+/* Estilos personalizados para el ChatPopup de ITHAKA */
+.ithaka-chat-popup {
+  --copilot-kit-primary-color: #1A365D !important; /* Azul oscuro principal */
+  --copilot-kit-secondary-color: #F58220 !important; /* Naranja de acento */
+  --copilot-kit-accent-color: #66B2B2 !important; /* Azul/Cian de acento */
+}
+
+.ithaka-popup-custom {
+  border-radius: 16px !important;
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.15) !important;
+  border: 2px solid #e5e7eb !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* Personalizar el header del popup */
+.ithaka-popup-custom [data-testid="copilot-modal-header"] {
+  background: linear-gradient(135deg, #1A365D 0%, #F58220 100%) !important; /* Gradiente de azul a naranja */
+  border-radius: 14px 14px 0 0 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+/* Personalizar los mensajes del asistente */
+.ithaka-popup-custom [data-testid="copilot-message-assistant"] {
+  background: #f8fafc !important;
+  border-left: 4px solid #1A365D !important; /* Borde azul oscuro */
+  border-radius: 8px !important;
+  margin: 8px 0 !important;
+}
+
+/* Personalizar los mensajes del usuario */
+.ithaka-popup-custom [data-testid="copilot-message-user"] {
+  background: #1A365D !important; /* Fondo azul oscuro */
+  color: white !important;
+  border-radius: 8px !important;
+  margin: 8px 0 !important;
+}
+
+/* Personalizar el input */
+.ithaka-popup-custom [data-testid="copilot-input"] {
+  border: 2px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  background: #f9fafb !important;
+  transition: all 0.3s ease !important;
+}
+
+.ithaka-popup-custom [data-testid="copilot-input"]:focus {
+  border-color: #1A365D !important; /* Borde azul oscuro */
+  box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1) !important; /* Sombra azul oscuro */
+}
+
+/* Personalizar el botón de envío */
+.ithaka-popup-custom [data-testid="copilot-send-button"] {
+  background: #1A365D !important; /* Fondo azul oscuro */
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.ithaka-popup-custom [data-testid="copilot-send-button"]:hover {
+  background: #F58220 !important; /* Hover naranja */
+  transform: scale(1.05) !important;
+} 

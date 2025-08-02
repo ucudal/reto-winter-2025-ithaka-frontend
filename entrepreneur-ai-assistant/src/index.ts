@@ -1,1 +1,2 @@
-export { WeatherCard as WeatherCard } from "./WeatherCard";
+export { default as ChatPopup } from "./ChatPopup";
+

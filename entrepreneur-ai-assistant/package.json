@@ -7,7 +7,8 @@
   "scripts": {
     "build:types": "tsc --project tsconfig.build.json",
     "build:js": "tsup",
-    "build": "npm run build:types && npm run build:js"
+    "build": "npm run build:types && npm run build:js",
+    "pack": "npm run build && npm pack"
   },
   "keywords": [],
   "author": "",
@@ -15,14 +16,9 @@
   "description": "",
   "exports": {
   ".": {
+    "types": "./dist/index.d.ts",
     "import": "./dist/index.mjs",
-    "require": "./dist/index.js",
-    "types": "./dist/index.d.ts"
-  },
-  "./WeatherCard": {
-    "import": "./dist/WeatherCard.mjs",
-    "require": "./dist/WeatherCard.js",
-    "types": "./dist/WeatherCard.d.ts"
+    "require": "./dist/index.js"
   }
   },
   "files": [
@@ -30,7 +26,8 @@
   ],
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@copilotkit/react-ui": "^0.0.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3",

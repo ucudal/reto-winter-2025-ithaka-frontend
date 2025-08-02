@@ -1,0 +1,47 @@
+{
+  "name": "ithaka-chatpopup",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ChatPopup component with ITHAKA branding and CopilotKit integration",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "styles.css",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "clean": "rimraf dist",
+    "pack": "npm pack",
+    "link": "npm link"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "@copilotkit/react-core": "^1.9.0",
+    "@copilotkit/react-ui": "^1.9.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/react": "^18.0.0",
+    "rollup": "^3.0.0",
+    "rollup-plugin-dts": "^5.0.0",
+    "typescript": "^5.0.0",
+    "rimraf": "^5.0.0"
+  },
+  "keywords": [
+    "react",
+    "chat",
+    "popup",
+    "copilotkit",
+    "ithaka",
+    "ucu"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+} 
