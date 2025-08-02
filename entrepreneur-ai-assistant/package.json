@@ -5,9 +5,7 @@
   "types": "./dist/index.d.ts",
   "module": "./dist/index.mjs",
   "scripts": {
-    "build:types": "tsc --project tsconfig.build.json",
-    "build:js": "tsup",
-    "build": "npm run build:types && npm run build:js",
+    "build": "tsup",
     "pack": "npm run build && npm pack"
   },
   "keywords": [],
@@ -27,7 +25,7 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@copilotkit/react-ui": "^0.0.0"
+    "@copilotkit/react-ui": "^1.9.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3",

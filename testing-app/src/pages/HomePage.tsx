@@ -19,6 +19,7 @@ export const HomePage = () => {
         <SectionContact />
       </main>
       <Footer />
+      <ChatPopup />
     </div>
   );
 };
