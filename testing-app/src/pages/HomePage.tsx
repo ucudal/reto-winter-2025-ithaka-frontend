@@ -4,6 +4,8 @@ import { SectionIntro } from '../components/SectionIntro';
 import { SectionUse } from '../components/SectionUse';
 import { SectionContact } from '../components/SectionContact';
 import { Footer } from '../components/Footer';
+import { ChatPopup } from 'entrepreneur-ai-assistant';
+
 
 
 
@@ -17,6 +19,7 @@ export const HomePage = () => {
         <SectionContact />
       </main>
       <Footer />
+      <ChatPopup />
     </div>
   );
 };
