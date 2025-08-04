@@ -44,8 +44,13 @@ yarn-error.log*
 next-env.d.ts
 
 # package files
-*.tgz
+# *.tgz  # Comentado para permitir versionar los archivos .tgz
 
 # vscode
 .vscode/
+
+# package-lock files (to avoid conflicts with local package installations)
 package-lock.json
+**/package-lock.json
+entrepreneur-ai-assistant/package-lock.json
+testing-app/package-lock.json

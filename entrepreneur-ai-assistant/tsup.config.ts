@@ -10,4 +10,11 @@ export default defineConfig({
   treeshake: true,
   clean: true,
   bundle: true,
+  outDir: 'dist',
+  // Extract CSS to separate file
+  inject: [],
+  // Copy CSS files
+  loader: {
+    '.css': 'copy'
+  }
 })

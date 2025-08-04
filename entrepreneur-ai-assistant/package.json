@@ -7,7 +7,8 @@
   "scripts": {
     "build:types": "tsc --project tsconfig.build.json",
     "build:js": "tsup",
-    "build": "npm run build:types && npm run build:js",
+    "build:css": "copy src\\styles.css dist\\",
+    "build": "npm run build:types && npm run build:js && npm run build:css",
     "pack": "npm run build && npm pack"
   },
   "keywords": [],
@@ -22,7 +23,8 @@
   }
   },
   "files": [
-    "dist"
+    "dist",
+    "src/styles.css"
   ],
   "peerDependencies": {
     "react": "^18.2.0",

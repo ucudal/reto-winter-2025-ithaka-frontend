@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@copilotkit/backend": "^0.37.0",
+    "@copilotkit/react-core": "^1.9.3",
     "@copilotkit/react-ui": "^1.9.3",
     "entrepreneur-ai-assistant": "file:../entrepreneur-ai-assistant/entrepreneur-ai-assistant-0.1.0.tgz",
     "next": "^15.4.5",
