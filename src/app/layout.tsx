@@ -19,10 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         <CopilotKit
-          publicApiKey={process.env.COPILOT_API_KEY || ""}
-          >
-            {children}
-          
+          runtimeUrl={process.env.NEXT_PUBLIC_RUNTIME_URL || "http://localhost:3000/api/copilotkit"}
+        >
+          {children}
+
         </CopilotKit>
       </body>
     </html>

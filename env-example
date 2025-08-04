@@ -1,2 +1,8 @@
-LANGSMITH_API_KEY=<LANGSMITH-KEY>
-OPENAI_API_KEY=<OPENAI-KEY>
+# Backend URL for CopilotKit integration
+LANGGRAPH_DEPLOYMENT_URL=http://localhost:8000/api/v1/copilotkit
+
+# OpenAI API Key (if needed for CopilotKit)
+OPENAI_API_KEY=your_openai_api_key_here
+
+# LangSmith API Key (if needed)
+LANGSMITH_API_KEY=your_langsmith_api_key_here
