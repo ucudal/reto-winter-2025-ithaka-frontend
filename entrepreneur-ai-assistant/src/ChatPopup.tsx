@@ -1,4 +1,3 @@
-"use client";
 import { CopilotKitCSSProperties, CopilotPopup } from "@copilotkit/react-ui";
 
 
