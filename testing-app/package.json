@@ -13,7 +13,9 @@
     "@copilotkit/react-core": "^1.9.3",
     "@copilotkit/react-ui": "^1.9.3",
     "entrepreneur-ai-assistant": "file:../entrepreneur-ai-assistant/entrepreneur-ai-assistant-0.1.0.tgz",
+    "install": "^0.13.0",
     "next": "^15.4.5",
+    "npm": "^11.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
