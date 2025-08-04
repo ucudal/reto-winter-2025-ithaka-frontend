@@ -1,4 +1,3 @@
-import React from 'react';
 import { CopilotKit } from '@copilotkit/react-core';
 import { CopilotKitCSSProperties, CopilotPopup } from "@copilotkit/react-ui";
 import '@copilotkit/react-ui/styles.css';
