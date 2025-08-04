@@ -2,12 +2,6 @@
 
 import { CopilotKitCSSProperties } from "@copilotkit/react-ui";
 import ChatPopup from "./components/ChatPopup";
-// import ChatTest from "./components/ChatTest";
-// import CopilotKitTest from "./components/CopilotKitTest";
-// import SimpleChat from "./components/SimpleChat";
-
-
-
 
 export default function CopilotKitPage() {
   const POPUP_THEME_COLOR = "deepskyblue";
@@ -27,13 +21,6 @@ export default function CopilotKitPage() {
       >
         <ChatPopup />
       </div>
-
-      {/* Componente de test para debugging
-      <div className="fixed bottom-4 right-4 z-50">
-        <SimpleChat />
-      </div> */}
-
-
     </>
   );
 }

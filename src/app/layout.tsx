@@ -22,7 +22,6 @@ export default function RootLayout({
           runtimeUrl={process.env.NEXT_PUBLIC_RUNTIME_URL || "http://localhost:3000/api/copilotkit"}
         >
           {children}
-
         </CopilotKit>
       </body>
     </html>
