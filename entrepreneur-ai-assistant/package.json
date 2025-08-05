@@ -16,11 +16,16 @@
   "license": "ISC",
   "description": "",
   "exports": {
-  ".": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js"
-  }
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./runtime": {
+      "import": "./dist/runtime/index.mjs",
+      "require": "./dist/runtime/index.js",
+      "types": "./dist/runtime/index.d.ts"
+    }
   },
   "files": [
     "dist",
@@ -30,7 +35,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@copilotkit/react-ui": "^1.9.0",
-    "@copilotkit/react-core": "^1.9.0"
+    "@copilotkit/react-core": "^1.9.0",
+    "@copilotkit/runtime": "^1.9.0",
+    "openai": "^4.104.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
