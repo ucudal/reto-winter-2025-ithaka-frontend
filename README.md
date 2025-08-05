@@ -11,6 +11,13 @@ formulación de la postulacion de proyecto a Ithaka para obtener servicios del d
 ## Estructura del Repositorio
 
 Este repositorio contiene dos componentes principales:
+```
+reto-winter-2025-ithaka-frontend/
+├── entrepreneur-ai-assistant/     # Librería de componentes
+├── testing-app/                   # Aplicación de testing
+├── src/                          # Código fuente principal
+└── README.md                     # Este archivo
+```
 
 1. **entrepreneur-ai-assistant**  
    Biblioteca de componentes compartibles. Su componente central es el chat con el agente de Ithaka.
