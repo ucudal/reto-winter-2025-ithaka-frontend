@@ -19,7 +19,7 @@ export const HomePage = () => {
         <SectionContact />
       </main>
       <Footer />
-      <ChatPopup publicApiKey={process.env.NEXT_PUBLIC_COPILOT_KEY || ""}/>
+      <ChatPopup apiUrl='/api/copilotkit'/>
     </div>
   );
 };
