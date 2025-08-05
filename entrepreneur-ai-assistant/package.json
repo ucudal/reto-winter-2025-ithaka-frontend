@@ -1,0 +1,41 @@
+{
+  "name": "entrepreneur-ai-assistant",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "scripts": {
+    "build:types": "tsc --project tsconfig.build.json",
+    "build:js": "tsup",
+    "build:css": "copy src\\styles.css dist\\",
+    "build": "npm run build:types && npm run build:js && npm run build:css",
+    "pack": "npm run build && npm pack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "exports": {
+  ".": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js"
+  }
+  },
+  "files": [
+    "dist",
+    "src/styles.css"
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@copilotkit/react-ui": "^1.9.0",
+    "@copilotkit/react-core": "^1.9.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "tsup": "^8.5.0"
+  }
+}

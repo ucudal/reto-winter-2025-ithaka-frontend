@@ -1,5 +1,5 @@
 {
-  "name": "reto-winter-2025-ithaka-frontend",
+  "name": "testing-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,14 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ag-ui/langgraph": "0.0.7",
-    "@ai-sdk/openai": "^1.3.22",
+    "@copilotkit/backend": "^0.37.0",
     "@copilotkit/react-core": "^1.9.3",
     "@copilotkit/react-ui": "^1.9.3",
-    "@copilotkit/runtime": "1.9.3",
-    "next": "15.4.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "entrepreneur-ai-assistant": "file:../entrepreneur-ai-assistant/entrepreneur-ai-assistant-0.1.0.tgz",
+    "next": "^15.4.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -25,7 +24,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.2",
+    "eslint-config-next": "15.4.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
