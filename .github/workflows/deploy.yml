@@ -3,7 +3,7 @@ name: Build and Deploy Docker Image to AKS
 on:
   push:
     branches:
-      - fix/deploy-and-verify-pr
+      - main
 
 jobs:
   build-and-deploy:

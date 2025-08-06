@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - fix/deploy-and-verify-pr
+      - main
 
 jobs:
   build-and-push:
