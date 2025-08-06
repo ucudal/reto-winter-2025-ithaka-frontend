@@ -1,4 +1,4 @@
-name: Verify PR for ithaka-frontend
+name: verify
 
 on:
   pull_request:
@@ -8,23 +8,21 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t ithaka-verify:test .
+        run: docker build -t ithaka-verify:test ./testing-app
 
       - name: Run Gitleaks via Docker
-        run: |
-          docker run --rm -v $(pwd):/path zricethezav/gitleaks:latest detect --source=/path --no-git --verbose
+        uses: gitleaks/gitleaks-action@v2
 
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ithaka-verify:test
+          image-ref: 'ithaka-verify:test'
           format: 'table'
-          exit-code: '0'
+          exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
+
