@@ -1,23 +1,24 @@
-# 1. Base image with Node
+# 1. Base image
 FROM node:18-alpine
 
-# 2. Set working directory inside the container
+# 2. Set working directory
 WORKDIR /app
 
-# 3. Copy dependencies including .tgz
-COPY package.json package-lock.json entrepreneur-ai-assistant-0.1.0.tgz ./
+# 3. Copy dependencies
+COPY package.json package-lock.json ./
 
 # 4. Install dependencies
-RUN npm install
+RUN npm ci
 
-# 5. Copy the rest of the code
+# 5. Copy rest of the app
 COPY . .
 
-# 6. Build the application (for React / Next.js)
+# 6. Build the app
 RUN npm run build
 
-# 7. Expose the port (React uses 3000)
+# 7. Expose port (si usás Next.js en modo producción)
 EXPOSE 3000
 
-# 8. Startup command
+# 8. Run app
 CMD ["npm", "start"]
+
