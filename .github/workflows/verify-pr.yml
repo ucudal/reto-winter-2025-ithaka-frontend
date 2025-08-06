@@ -18,13 +18,13 @@ jobs:
 
       - name: Run Gitleaks via Docker
         run: |
-          docker run --rm -v $(pwd):/path zricethezav/gitleaks:latest detect --source=/path --no-git --verbose
+          docker run --rm -v $(pwd):/path zricethezav/gitleaks:v8.18.1 detect --source=/path --no-git --verbose
 
       - name: Scan image with Trivy
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.19.0
         with:
           image-ref: ithaka-verify:test
           format: 'table'
-          exit-code: '0'
+          exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
