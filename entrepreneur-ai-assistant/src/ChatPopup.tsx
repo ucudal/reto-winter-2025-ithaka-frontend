@@ -2,7 +2,7 @@ import React from 'react';
 import { CopilotKit } from '@copilotkit/react-core';
 import { CopilotKitCSSProperties, CopilotPopup } from "@copilotkit/react-ui";
 import '@copilotkit/react-ui/styles.css';
-import { useChatForm } from './models/hooks/useChatForm';
+import { useChatForm } from './hooks/useChatForm';
 
 interface ChatPopupProps {
   publicApiKey?: string;
@@ -32,20 +32,15 @@ export default function ChatPopup({
             title: title,
             initial: initialMessage,
           }}
-          onSubmitMessage={(message) => {
-            dispatch({ type: 'ADD_MESSAGE', payload: message });
-          }}
         />
 
-        {/* Debug */}
+        {/* Debug - Comentado para no commitear */}
+        {/*
         <div style={{ padding: '1rem', background: '#f5f5f5', marginTop: '1rem' }}>
-          <h4>Historial de mensajes:</h4>
-          {state.messageHistory.map((msg, i) => (
-            <div key={i}>{msg}</div>
-          ))}
           <h4>Datos actuales del formulario:</h4>
           <pre>{JSON.stringify(state.form, null, 2)}</pre>
         </div>
+        */}
       </div>
     </CopilotKit>
   );
