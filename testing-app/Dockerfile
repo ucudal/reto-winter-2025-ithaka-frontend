@@ -8,16 +8,16 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 # 4. Copiar el paquete local (archivo .tgz)
-COPY entrepreneur-ai-assistant-0.1.0.tgz ./entrepreneur-ai-assistant.tgz
+COPY entrepreneur-ai-assistant-0.1.0.tgz ./
 
-# 5. Instalar dependencias, incluyendo el paquete local
-RUN npm install ./entrepreneur-ai-assistant.tgz
+# 5. Instalar dependencias incluyendo el paquete local
+RUN npm install ./entrepreneur-ai-assistant-0.1.0.tgz
 
-# 6. Copiar el resto del código
+# 6. Copiar el resto del código (después de instalar para evitar cache issues)
 COPY . .
 
-# 7. Construir la aplicación
+# 7. Ejecutar build
 RUN npm run build
 
-# 8. Exponer puerto (opcional si no corre servidor)
+# 8. Exponer puerto si hace falta
 EXPOSE 3000
