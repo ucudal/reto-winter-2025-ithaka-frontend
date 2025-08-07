@@ -1,28 +1,26 @@
-# Dockerfile final — testing-app/Dockerfile
+# Dockerfile (ubicado dentro de testing-app/)
 
 FROM node:18-alpine
 
-# 1. Establecer directorio de trabajo
+# 1. Crear carpeta y definirla como directorio de trabajo
 WORKDIR /app
 
-# 2. Copiar package.json y lock
-COPY testing-app/package.json .
-COPY testing-app/package-lock.json .
+# 2. Copiar archivos desde el contexto actual (donde ya estamos en testing-app/)
+COPY package.json .
+COPY package-lock.json .
+COPY entrepreneur-ai-assistant-0.1.0.tgz .
 
-# 3. Copiar el .tgz del paquete local
-COPY testing-app/entrepreneur-ai-assistant-0.1.0.tgz .
-
-# 4. Instalar todas las dependencias (incluyendo el tgz desde package.json)
+# 3. Instalar todas las dependencias (incluyendo el tgz referenciado en package.json)
 RUN npm install
 
-# 5. Copiar el resto del código
-COPY testing-app .
+# 4. Copiar el resto del código fuente (desde dentro de testing-app/)
+COPY . .
 
-# 6. Construir la app
+# 5. Construir la app
 RUN npm run build
 
-# 7. Exponer puerto si hace falta
+# 6. Exponer puerto
 EXPOSE 3000
 
-# 8. Comando por defecto
+# 7. Comando de inicio
 CMD ["npm", "start"]
