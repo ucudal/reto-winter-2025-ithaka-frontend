@@ -8,16 +8,16 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: testing-app
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Build Docker image
         run: |
-          docker build \
-            -f testing-app/Dockerfile \
-            -t ithaka-verify:test \
-            .
+          docker build -f Dockerfile -t ithaka-verify:test .
 
       - name: Run Gitleaks via Docker
         run: |
