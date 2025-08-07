@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Gitleaks via Docker
         run: |
-          docker run --rm -v $(pwd):/path zricethezav/gitleaks:latest detect --source=/path --no-git --verbose
+          docker run --rm -v "$(pwd):/path" zricethezav/gitleaks:latest detect --source=/path --no-git --verbose
 
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@master
