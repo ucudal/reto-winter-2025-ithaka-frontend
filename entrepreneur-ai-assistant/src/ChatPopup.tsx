@@ -45,3 +45,4 @@ export default function ChatPopup({
     </CopilotKit>
   );
 }
+
