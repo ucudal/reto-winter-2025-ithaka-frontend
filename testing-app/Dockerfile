@@ -1,24 +1,18 @@
-# 1. Base image
 FROM node:18-alpine
 
-# 2. Set working directory
 WORKDIR /app
 
-# 3. Copy dependencies
-COPY package.json package-lock.json ./
+# Copiar archivos de configuración
+COPY testing-app/package*.json ./
 
-# 4. Install dependencies
-RUN npm ci
+# Copiar el paquete local desde fuera del contexto directo
+COPY entrepreneur-ai-assistant/entrepreneur-ai-assistant-0.1.0.tgz ./entrepreneur-ai-assistant.tgz
 
-# 5. Copy rest of the app
-COPY . .
+# Instalar el paquete y luego las dependencias
+RUN npm install ./entrepreneur-ai-assistant.tgz && npm install
 
-# 6. Build the app
-RUN npm run build
+# Copiar el resto del código
+COPY testing-app .
 
-# 7. Expose port (si usás Next.js en modo producción)
 EXPOSE 3000
-
-# 8. Run app
 CMD ["npm", "start"]
-
