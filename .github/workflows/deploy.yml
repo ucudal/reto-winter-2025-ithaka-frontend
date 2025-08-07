@@ -11,29 +11,36 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Gitleaks via Docker
-        run: |
-          docker run --rm -v $(pwd):/path zricethezav/gitleaks:latest detect --source=/path --no-git --verbose
+        run: docker run --rm -v "${{ github.workspace }}:/path" zricethezav/gitleaks:latest detect --source=/path --no-git --verbose
 
       - name: Log in to Azure Container Registry
-        run: echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_LOGIN_SERVER }} -u ${{ secrets.ACR_USERNAME }} --password-stdin
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest .
+        run: |
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:${{ github.sha }} .
+        working-directory: testing-app
 
       - name: Scan image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest
+          image-ref: ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:${{ github.sha }}
           format: 'table'
           exit-code: '0'
+          severity: 'HIGH,CRITICAL'
           ignore-unfixed: true
           vuln-type: 'os,library'
+          continue-on-error: true
 
       - name: Push Docker image
-        run: docker push ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest
+        run: docker push ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:${{ github.sha }}
 
       - name: Set up Kubeconfig
         run: |

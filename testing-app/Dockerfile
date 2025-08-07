@@ -1,21 +1,28 @@
-# 1. Base image with Node
 FROM node:18-alpine
 
-# 2. Set working directory inside the container
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json* ./
-RUN npm i
+# Copiar solo lo necesario para instalar dependencias
+COPY package.json ./
+COPY package-lock.json ./
+COPY entrepreneur-ai-assistant-0.1.0.tgz ./
 
-# 5. Copy the rest of the code
+# DEBUG: Verificar que los archivos están en la imagen
+RUN ls -l .
+RUN cat package.json
+
+# Instalar dependencias
+RUN npm install
+
+# DEBUG: Verificar la versión instalada de cross-spawn
+RUN npm ls cross-spawn
+
+# Copiar el resto del código
 COPY . .
 
-# 6. Build the application (for React / Next.js)
+# Build de la app Next.js
 RUN npm run build
 
-# 7. Expose the port (React uses 3000, your Flask used 5002)
 EXPOSE 3000
 
-# 8. Startup command
 CMD ["npm", "start"]
