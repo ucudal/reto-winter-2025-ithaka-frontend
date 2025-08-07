@@ -1,6 +1,8 @@
+import React from 'react';
 import { CopilotKit } from '@copilotkit/react-core';
 import { CopilotKitCSSProperties, CopilotPopup } from "@copilotkit/react-ui";
 import '@copilotkit/react-ui/styles.css';
+import { useChatForm } from './hooks/useChatForm';
 
 interface ChatPopupProps {
   publicApiKey?: string;
@@ -17,11 +19,12 @@ export default function ChatPopup({
   initialMessage = "Hola soy el asistente de ITHAKA, ¿en qué puedo ayudarte hoy?",
   instructions = "Ayuda al usuario con su solicitud."
 }: ChatPopupProps) {
+  
+  const { state, dispatch } = useChatForm();
+
   return (
     <CopilotKit publicApiKey={publicApiKey}>
-      <div
-        style={{ "--copilot-kit-primary-color": themeColor } as CopilotKitCSSProperties}
-      >
+      <div style={{ "--copilot-kit-primary-color": themeColor } as CopilotKitCSSProperties}>
         <CopilotPopup
           defaultOpen
           instructions={instructions}
@@ -29,9 +32,17 @@ export default function ChatPopup({
             title: title,
             initial: initialMessage,
           }}
-        >
-        </CopilotPopup>
+        />
+
+        {/* Debug - Comentado para no commitear */}
+        {/*
+        <div style={{ padding: '1rem', background: '#f5f5f5', marginTop: '1rem' }}>
+          <h4>Datos actuales del formulario:</h4>
+          <pre>{JSON.stringify(state.form, null, 2)}</pre>
+        </div>
+        */}
       </div>
     </CopilotKit>
   );
 }
+
