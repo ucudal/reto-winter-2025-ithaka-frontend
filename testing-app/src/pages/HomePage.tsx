@@ -19,7 +19,7 @@ export const HomePage = () => {
         <SectionContact />
       </main>
       <Footer />
-      <ChatPopup apiUrl='/api/copilotkit'/>
+      <ChatPopup apiUrl='/api/copilotkit' pageName="HomePage"/>
     </div>
   );
 };
