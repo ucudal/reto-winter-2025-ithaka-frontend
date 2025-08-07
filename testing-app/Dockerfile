@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 # 1. Crear carpeta de trabajo
 WORKDIR /app
@@ -22,3 +22,4 @@ EXPOSE 3000
 
 # 7. Comando por defecto
 CMD ["npm", "start"]
+

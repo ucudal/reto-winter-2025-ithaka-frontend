@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -17,7 +16,13 @@ jobs:
         run: echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_LOGIN_SERVER }} -u ${{ secrets.ACR_USERNAME }} --password-stdin
 
       - name: Build Docker image (desde ./testing-app)
-        run: docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest ./testing-app
+        run: |
+          docker build \
+            -t ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest \
+            -t ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:${{ github.sha }} \
+            ./testing-app
 
-      - name: Push Docker image
-        run: docker push ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest
+      - name: Push Docker images
+        run: |
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:latest
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:${{ github.sha }}

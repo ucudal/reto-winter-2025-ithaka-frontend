@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -36,7 +35,8 @@ jobs:
         with:
           image-ref: ${{ secrets.ACR_LOGIN_SERVER }}/ithaka-frontend:${{ github.sha }}
           format: 'table'
-          exit-code: '0'
+          exit-code: '1'  # fail if vulnerabilities are found
+          severity: 'HIGH,CRITICAL'
           ignore-unfixed: true
           vuln-type: 'os,library'
 
