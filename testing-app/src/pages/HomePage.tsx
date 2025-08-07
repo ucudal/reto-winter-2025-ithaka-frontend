@@ -16,7 +16,9 @@ export const HomePage = () => {
         <SectionContact />
       </main>
       <Footer />
-      <ChatPopup publicApiKey={process.env.NEXT_PUBLIC_COPILOT_KEY || ""} />
+      {process.env.NEXT_PUBLIC_COPILOT_KEY && (
+      <ChatPopup publicApiKey={process.env.NEXT_PUBLIC_COPILOT_KEY} />
+      )}
     </div>
   );
 };
