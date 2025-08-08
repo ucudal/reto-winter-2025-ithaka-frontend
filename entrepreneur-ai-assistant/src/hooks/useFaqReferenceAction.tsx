@@ -8,7 +8,11 @@ type UseFaqReferenceActionProps = {
 export const useFaqReferenceAction = ({ onRedirect }: UseFaqReferenceActionProps) => {
   useCopilotAction({
     name: "navigateToFaqIfRelevant",
-    description:"Usa esta herramienta siempre que el usuario haga una pregunta que pueda estar relacionada con las preguntas frecuentes (FAQ) de ITHAKA. No intentes responder por tu cuenta: esta herramienta se encargará de redirigir o responder. Siempre llama a esta función para resolver esas preguntas.",
+    description:`
+    Usa esta herramienta siempre que el usuario haga una pregunta que 
+    pueda estar relacionada con las preguntas frecuentes (FAQ) de ITHAKA.
+    Las preguntas frecuentes son ${faqData.map(({question}) => question)}
+    `,
     parameters: [
       {
         name: "question",
@@ -24,10 +28,7 @@ export const useFaqReferenceAction = ({ onRedirect }: UseFaqReferenceActionProps
 
       if (matched && onRedirect) {
         onRedirect();
-        return `Te redirijo a la página de preguntas frecuentes para más información sobre: "${matched.question}"`;
       }
-
-      return "No encontré una pregunta frecuente relacionada.";
     },
   });
 };
