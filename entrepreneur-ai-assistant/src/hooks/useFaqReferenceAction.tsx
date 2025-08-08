@@ -1,39 +1,33 @@
-// entrepreneur-ai-assistant/src/hooks/useFaqReferenceAction.ts
 import { useCopilotAction } from "@copilotkit/react-core";
 import { faqData } from "../constants/faqData";
 
-export function useFaqReferenceAction(pageName: string) {
-  return useCopilotAction({
-    name: "referenceFaq",
-    description:"Usa esta herramienta siempre que el usuario haga una pregunta que pueda estar relacionada con las preguntas frecuentes (FAQ) de ITHAKA. No intentes responder por tu cuenta: esta herramienta se encargará de redirigir o responder. Siempre llama a esta función para resolver esas preguntas.",
+type UseFaqReferenceActionProps = {
+  onRedirect?: () => void;
+};
 
+export const useFaqReferenceAction = ({ onRedirect }: UseFaqReferenceActionProps) => {
+  useCopilotAction({
+    name: "navigateToFaqIfRelevant",
+    description: "Redirige al usuario a la página de FAQs si su pregunta coincide.",
     parameters: [
       {
         name: "question",
         type: "string",
-        description: "Pregunta a responder usando el contenido de FAQ",
+        description: "La pregunta que el usuario hizo",
         required: true,
       },
     ],
-    handler: async ({ question }) => {
-
-      // Si no estamos en la página de FAQ, redirigir
-      if (pageName !== "FAQPage") {
-        if (typeof window !== "undefined") {
-          window.location.href = "/faq";
-        }
-        return "Redirigiendo a la página de preguntas frecuentes...";
-      }
-
-      const match = faqData.find((item) =>
-        question.toLowerCase().includes(item.question.toLowerCase().slice(0, 20))
+    handler: async ({ question }: { question: string }) => {
+      const matched = faqData.find((q) =>
+        question.toLowerCase().includes(q.question.toLowerCase())
       );
 
-      if (match) {
-        return `Pregunta frecuente encontrada:\n\n**${match.question}**\n${match.answer}`;
-      } else {
-        return "No encontré una respuesta directa en las preguntas frecuentes.";
+      if (matched && onRedirect) {
+        onRedirect();
+        return `Te redirijo a la página de preguntas frecuentes para más información sobre: "${matched.question}"`;
       }
+
+      return "No encontré una pregunta frecuente relacionada.";
     },
   });
-}
+};

@@ -31,8 +31,8 @@ export default function ChatPopup({
 
   return (
     <CopilotKit
-      publicApiKey={!apiUrl ? publicApiKey : undefined}
       runtimeUrl={apiUrl}
+      publicApiKey={undefined}
     >
       <ChatUIWrapper
         themeColor={themeColor}
@@ -61,7 +61,6 @@ function ChatUIWrapper(
   instructions: string;
   pageName: string;
 }) {
-  useFaqReferenceAction(pageName); // ✅ Hook llamado dentro del contexto
 
   return (
     <div style={{ "--copilot-kit-primary-color": themeColor } as CopilotKitCSSProperties}>
