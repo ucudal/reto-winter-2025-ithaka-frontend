@@ -6,8 +6,6 @@ import { SectionContact } from '../components/SectionContact';
 import { Footer } from '../components/Footer';
 
 
-
-
 export const HomePage = () => {
   return (
     <div className="app">
@@ -24,4 +22,3 @@ export const HomePage = () => {
 };
 
 export default HomePage; 
-
