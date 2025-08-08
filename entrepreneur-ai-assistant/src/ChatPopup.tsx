@@ -5,6 +5,9 @@ import '@copilotkit/react-ui/styles.css';
 import { useEffect } from "react";
 import { useFaqReferenceAction } from "./hooks/useFaqReferenceAction";
 
+import { useRouter } from "next/navigation";
+
+
 interface ChatPopupProps {
   publicApiKey?: string;
   apiUrl?: string;
@@ -21,7 +24,7 @@ export default function ChatPopup({
   themeColor = "deepskyblue",
   title = "Asistente de ITHAKA",
   initialMessage = "Hola soy el asistente de ITHAKA, ¿en qué puedo ayudarte hoy?",
-  instructions = "Ayuda al usuario con su solicitud.",
+  instructions="Si el usuario hace una pregunta que coincide con alguna pregunta frecuente, redirígelo automáticamente a la página de preguntas frecuentes sin responder directamente. No intentes responder por tu cuenta: esta herramienta se encargará de redirigir o responder. Siempre llama a esta función para resolver esas preguntas.",
   pageName = "unknown",
 }: ChatPopupProps) {
 
@@ -61,7 +64,13 @@ function ChatUIWrapper(
   instructions: string;
   pageName: string;
 }) {
+  const router = useRouter();
 
+  useFaqReferenceAction({
+    onRedirect: () => {
+      router.push("/faq");
+    }
+  });
   return (
     <div style={{ "--copilot-kit-primary-color": themeColor } as CopilotKitCSSProperties}>
       <CopilotPopup

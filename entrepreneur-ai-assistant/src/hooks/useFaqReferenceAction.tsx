@@ -8,7 +8,7 @@ type UseFaqReferenceActionProps = {
 export const useFaqReferenceAction = ({ onRedirect }: UseFaqReferenceActionProps) => {
   useCopilotAction({
     name: "navigateToFaqIfRelevant",
-    description: "Redirige al usuario a la página de FAQs si su pregunta coincide.",
+    description:"Usa esta herramienta siempre que el usuario haga una pregunta que pueda estar relacionada con las preguntas frecuentes (FAQ) de ITHAKA. No intentes responder por tu cuenta: esta herramienta se encargará de redirigir o responder. Siempre llama a esta función para resolver esas preguntas.",
     parameters: [
       {
         name: "question",
