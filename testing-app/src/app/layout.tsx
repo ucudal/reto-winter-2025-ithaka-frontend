@@ -1,16 +1,17 @@
-import React from 'react'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import '../styles.css'
-import '../index.css'
-import '@copilotkit/react-ui/styles.css';
+import React from 'react';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import '../styles.css';
+import '../index.css';
 
-const inter = Inter({ subsets: ['latin'] })
+import ChatPopupWrapper from '../components/ChatPopupWrapper';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Testing App',
   description: 'Testing application',
-}
+};
 
 export default function RootLayout({
   children,
@@ -20,8 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ChatPopupWrapper />
         {children}
       </body>
     </html>
-  )
-} 
+  );
+}
