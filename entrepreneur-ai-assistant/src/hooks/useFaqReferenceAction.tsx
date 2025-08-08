@@ -22,11 +22,7 @@ export const useFaqReferenceAction = ({ onRedirect }: UseFaqReferenceActionProps
       },
     ],
     handler: async ({ question }: { question: string }) => {
-      const matched = faqData.find((q) =>
-        question.toLowerCase().includes(q.question.toLowerCase())
-      );
-
-      if (matched && onRedirect) {
+      if (onRedirect) {
         onRedirect();
       }
     },
